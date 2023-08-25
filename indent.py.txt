@@ -1,0 +1,50 @@
+import tkinter as tk
+from tkinter import ttk
+from tkinter import*
+import pyodbc
+
+root=Tk()
+root.title('ITEM MASTER')
+conn=pyodbc.connect('driver={sql server};'
+'server=DESKTOP-NS6I4I6\SQLEXPRESS;'
+'Database=vijay;'
+'Trusted_Connection=yes;')
+print("Connected.")
+cusor1=conn.cursor()
+bkg="#636e72"
+root.geometry('800x800')
+root.configure(bg='pink')
+frame=tk.Frame(root,width=100,height=100,bg='pink')
+label_id=tk.Label(frame,text='ITEM_CODE',bg=bkg)
+entry_id=tk.Entry(frame,)
+label_item=tk.Label(frame,text='ITEM_NAME',bg=bkg)
+entry_item=tk.Entry(frame)
+label_qty=tk.Label(frame,text='ITEM_GROUP',bg=bkg)
+entry_qty=tk.Entry(frame)
+
+def insertdata():
+    id= entry_id.get()
+    name= entry_item.get()
+    qty= entry_qty.get()
+    
+    sql_query=("INSERT INTO indent1(id,item_name,item_qty) VALUES(?,?,?)")
+    vals= (id,name,qty)
+    cusor1.execute(sql_query,vals)
+    conn.commit()
+    print("Data Successfully Inserted") 
+#cusor1.close()
+button_insert=tk.Button(frame,text='SUBMIT',bg='orange',command=insertdata)
+
+label_id.grid(row=0,column=0)
+entry_id.grid(row=0,column=1,padx=10,pady=10)
+label_item.grid(row=1,column=0)
+entry_item.grid(row=1,column=1,padx=10,pady=10)
+label_qty.grid(row=2,column=0)
+entry_qty.grid(row=2,column=1,padx=10,pady=10)
+button_insert.grid(row=4,column=0,columnspan=2,padx=10,pady=10)
+#frame.grid(row=100,column=100)
+frame.pack(fill= BOTH, expand= True)
+
+
+
+root.mainloop()

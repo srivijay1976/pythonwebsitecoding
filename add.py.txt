@@ -1,0 +1,60 @@
+import tkinter as tk
+from tkinter import*
+import pyodbc
+conn=pyodbc.connect('driver={sql server};'
+'server=DESKTOP-NS6I4I6\SQLEXPRESS;'
+'Database=vijay;'
+'Trusted_Connection=yes;')
+cusor1=conn.cursor()
+root=Tk()
+root.geometry('500x500')
+root.title('Purchase Indent')
+bkg='#636e72'
+frame=tk.Frame(root,bg=bkg)
+label_firstname= tk.Label(frame,text='First_Name:',font=('verdana',12),bg=bkg)
+entry_firstname=tk.Entry(frame)
+
+label_lastname= tk.Label(frame,text='Last_Name:',font=('verdana',12),bg=bkg)
+entry_lastname=tk.Entry(frame)
+
+label_email= tk.Label(frame,text='Email:',font=('verdana',12),bg=bkg)
+entry_email=tk.Entry(frame)
+
+label_age= tk.Label(frame,text='Age:',font=('verdana',12),bg=bkg)
+entry_age=tk.Entry(frame)
+
+button_insert=Button(root)
+
+def insertdata():
+    firstname= entry_firstname.get()
+    lastname= entry_lastname.get()
+    email= entry_email.get()
+    age= entry_age.get()
+    
+    insert_query = "INSERT INTO user3('firstname','lastname','email','age') values(?,?,?,?)"
+    vals= (firstname,lastname,email,age)
+    cusor1.execute(insert_query,vals)
+    
+    button_insert =tk.Button(root,text='Insert',font=('verdana',12),bg='orange',command=insertdata)
+    
+    label_firstname.grid(row=0,column=0)
+entry_firstname.grid(row=0,column=1,padx=10,pady=10)
+
+label_lastname.grid(row=1,column=0)
+entry_lastname.grid(row=1,column=1,padx=10,pady=10)
+
+label_email.grid(row=2,column=0)
+entry_email.grid(row=2,column=1,padx=10,pady=10)
+
+label_age.grid(row=3,column=0)
+entry_age.grid(row=3,column=1,padx=10,pady=10)
+button_insert.grid(row=4,column=0)
+frame.grid(row=0,column=0)
+
+
+
+
+root.mainloop()
+
+#cusor1=conn.cursor()
+#cusor1.execute('select * from customer')

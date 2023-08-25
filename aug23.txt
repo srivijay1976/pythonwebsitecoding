@@ -1,0 +1,28 @@
+from tkinter import*
+
+  
+root = Tk()
+root.geometry("1255x800")
+f1=Frame(root,bg="red",borderwidth=6,relief=SUNKEN)
+f1.pack(side=LEFT,fill="y")
+f2=Frame(root,bg="red",borderwidth=8,relief=SUNKEN)
+f2.pack(side=TOP,fill="x")
+b1=Button(root,bg="yellow",text="Print Now")
+b1.pack(side=LEFT,padx=23)
+b2=Button(root,bg="yellow",text="Print Now")
+b2.pack(side=LEFT,padx=23)
+b3=Button(root,bg="yellow",text="Print Now")
+b3.pack(side=LEFT,padx=23)
+b4=Button(root,bg="yellow",text="Print Now")
+b4.pack(side=LEFT,padx=23)
+l=Label(f1,text="Project")
+l.pack(pady=42)
+l=Label(f2,text="HAR HAR MAHADEV",fg="green",font=("Helvetica",19,"bold"))
+l.pack()
+root.title("OM NAMAH SIVAI")
+root.minsize(1255,944)
+root.maxsize(1255,944)
+
+
+
+root.mainloop()

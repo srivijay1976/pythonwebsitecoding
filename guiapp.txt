@@ -1,0 +1,87 @@
+import tkinter
+from tkinter import ttk
+import tkinter as tk
+window = tk.Tk()
+
+window.title("FIRST GUI SOFTWARE")
+
+#label
+
+enter_name_label = ttk.Label(window,foreground="red",background="white",text="Enter Your Name :-")
+enter_name_label.grid(row=0,column=0,sticky = tk.W)
+
+enter_surname_label = ttk.Label(window,text="Enter Your SurName :-")
+enter_surname_label.grid(row=1,column=0,sticky = tk.W)
+
+enter_email_label = ttk.Label(window,text="Enter Your email :-")
+enter_email_label.grid(row=2,column=0,sticky = tk.W)
+
+enter_gender_label = ttk.Label(window,text="Select Gender :-")
+enter_gender_label.grid(row=3,column=0,sticky = tk.W)
+
+
+#Entry Box
+name = tk.StringVar()
+name_entry_box = ttk.Entry(window,width=18,textvariable=name)
+name_entry_box.grid(row=0,column=1)
+
+surname = tk.StringVar()
+surname_entry_box = ttk.Entry(window,width=18,textvariable=surname)
+surname_entry_box.grid(row=1,column=1)
+
+email = tk.StringVar()
+email_entry_box = ttk.Entry(window,width=18,textvariable=email)
+email_entry_box.grid(row=2,column=1)
+
+#ComboBox
+male_female = tk.StringVar()
+new_combo_box = ttk.Combobox(window,width=18,state="readonly",textvariable=male_female)
+new_combo_box["values"] = ("Male","Female")
+new_combo_box.current(0)
+new_combo_box.grid(row=3,column=1)
+
+#RadioButton
+usertype = tk.StringVar()
+new_radio_btn1 = ttk.Radiobutton(window,text="Student",value="student",variable=usertype)
+new_radio_btn1.grid(row=4,column=0)
+
+new_radio_btn2 = ttk.Radiobutton(window,text="Teacher",value="Teacher",variable=usertype)
+new_radio_btn2.grid(row=4,column=1)
+
+#CheckBox
+condition_var = tk.IntVar()
+new_check_box = ttk.Checkbutton(window,text="Check for Lates Updates",variable=condition_var)
+new_check_box.grid(row=5,column=0)
+
+#Button
+
+def button_click_function():
+    names = name.get()
+    surnames = surname.get()
+    emails = email.get()
+    gender_get = usertype.get()
+    user_teacher_student = usertype.get()
+    if condition_var.get() == 0:
+               
+          checked = "Please check the checke box"
+      
+    else :
+          checked = "you have successfully checked the check box button"
+          print(f"your name is {names}\n your surname is {surnames}\n your email address is {emails}")
+          print(f"your are a{user_teacher_student}\n you are a {gender_get}")
+          print(checked)
+
+    with open(zzzz.txt , "a") as file
+        file.write(f"{names},{surnames},{emails},{gender_get},{user_teacher_student},{checked}")
+
+
+        name_entry_box.delete(0.tk.end)
+        surname_entry_box.delete(0,tk.end)
+        email_entry_box.delete(0,tk.end)
+
+         
+
+new_submit_button = ttk.Button(window,text="Submit",command = button_click_function)
+new_submit_button.grid(row=6,column=1)
+
+window.mainloop()
