@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+<title>METAL SEAM COMPANY PVT.LTD.</title>
+</head>
+
+<body>
+    <body style="background-color:aquamarine;">
+        <center>      
+            <font color = "blue"><p><h1>Metal Seam Company Pvt.Ltd.</h1></p></font>
+       </center>
+     </body>
+<center>Register your complains online......</center>
+<form>
+<fieldset>
+<label for= ""></label>
+<p>
+Ticket_No: <input type="ticket_No" name=""  value=""><br>
+</p>
+UserName : <input type="username"  name=""  value=""><br>
+<p>
+Department Name: <input type="dept_name" name="" value=""><br>
+</p>
+<p>
+Problem  : <input type="problem"   name=""  value=""><br><br>
+</p>
+
+Date of Complain:<br>
+<select name="month">
+<option value="month">month</option>
+<option value="january">January</option>
+<option value="febuary">Febuary</option>
+
+</select>
+<select name="days">
+<option value="days">Days</option>
+<option value="1"> 1 </option>
+<option value="2"> 2 </option>
+</select>
+<select name="year">
+<option value="year">Years</option>
+<option value="1985">1985</option>
+<option value="1980">1980</option>
+</select>
+<input type="Submit" name="" value="submit">
+</fieldset>
+
+</form>
+</body>
+
+</html>
